@@ -8,9 +8,10 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     libzip-dev \
-    zip
+    zip \
+    libicu-dev
 
-RUN docker-php-ext-install zip
+RUN docker-php-ext-install zip intl
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
